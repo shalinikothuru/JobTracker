@@ -16,3 +16,5 @@ python3 creating_db_with_tables.py
 Note: Run this command by in the Final part folder. By executing the above table 'jobs' database will be created. Please delete jobs database file before executing this command. Otherwise, the database will not be created as there is existing database already.
 
 5. Next execute python3 app.py and click on the website.
+
+6. Website demo: https://youtu.be/x3e0aee5ex0
