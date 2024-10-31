@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Applications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: darkorange;
+            color: black;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            color: #358deb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        form {
+            margin: 0;
+        }
+        select, button {
+            padding: 5px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: darkorange;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f7860d;
+        }
+        .logout {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .logout:hover {
+            background-color: #c82333;
+        }
+        #dashboard-button {
+            position: fixed; /* Fixed position */
+            top: 20px; /* 20px from the top */
+            right: 20px; /* 20px from the right */
+            padding: 10px 20px;
+            background-color: darkorange; /* Red color for visibility */
+            color: black;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold
+          }
+    </style>
+</head>
+<body>
+    <h1>Your job applications so far...</h1>
+    <button id="dashboard-button" onclick="location.href='/dashboard'">Dashboard</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Job ID</th>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Location</th>
+                <th>URL</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Update Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in job_apps %}
+            <tr>
+                <td>{{ job.job_id }}</td>
+                <td>{{ job.company_name }}</td>
+                <td>{{ job.role }}</td>
+                <td>{{ job.location }}</td>
+                <td><a href="{{ job.URL }}" target="_blank">View Job</a></td>
+                <td>{{ job.application_date}}</td>
+                <td>{{ job.status }}</td>
+                <td>
+                    <form action="/update_job" method="post">
+                        <input type="hidden" name="job_id" value="{{ job.job_id }}">
+                        <select name="status">
+                            <option value="Applied" {% if job.status == "Applied" %}selected{% endif %}>Applied</option>
+                            <option value="Interviewed" {% if job.status == "Interviewed" %}selected{% endif %}>Interviewed</option>
+                            <option value="Pending" {% if job.status == "Pending" %}selected{% endif %}>Pending</option>
+                            <option value="Offer" {% if job.status == "Offer" %}selected{% endif %}>Offer</option>
+                            <option value="Rejected" {% if job.status == "Rejected" %}selected{% endif %}>Rejected</option>
+                        </select>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

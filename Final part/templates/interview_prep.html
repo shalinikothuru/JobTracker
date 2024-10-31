@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Preparation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        .container:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 5px solid darkorange;
+            transition: transform 0.3s ease, border-left 0.3s ease;
+        }
+        li:hover {
+            transform: translateX(5%);
+            border-left: 10px solid #8c5507;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: darkorange;
+            text-decoration: underline;
+        }
+        .tips {
+            background-color: rgb(241, 217, 188);
+            border-left: 5px solid #f7860d;
+            padding: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, border-left 0.3s ease;
+        }
+        .tips:hover {
+            background-color: rgb(241, 217, 188);
+            border-left: 10px solid #f7860d;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fadeIn {
+            animation: fadeIn 1s ease-out;
+        }
+        #dashboard-button {
+            position: fixed; /* Fixed position */
+            top: 20px; /* 20px from the top */
+            right: 20px; /* 20px from the right */
+            padding: 10px 20px;
+            background-color: darkorange; /* Red color for visibility */
+            color: black;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold
+          }
+    </style>
+</head>
+<body>
+    <button id="dashboard-button" onclick="location.href='/dashboard'">Dashboard</button>
+    <div class="container fadeIn">
+        <h1>Interview Preparation</h1>
+        <p>Prepare for your upcoming interviews with curated resources and actionable tips.</p>
+        
+        <h2>Recommended Articles</h2>
+        <ul>
+            <li><a href="https://www.thebalancecareers.com/top-interview-questions-and-best-answers-2061225" target="_blank">Top Interview Questions and Best Answers</a></li>
+            <li><a href="https://www.indeed.com/career-advice/interviewing/behavioral-interview-questions" target="_blank">Behavioral Interview Questions to Prepare For</a></li>
+            <li><a href="https://hbr.org/2020/01/how-to-negotiate-your-next-salary" target="_blank">How to Negotiate Your Next Salary</a></li>
+        </ul>
+        
+        <h2>Must-Watch Videos</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=GXo__NvhTCI" target="_blank">Interview Tips from Former Google Executives</a></li>
+            <li><a href="https://www.youtube.com/watch?v=M1CHPnZfFmU" target="_blank">How to Avoid Common Interview Mistakes</a></li>
+        </ul>
+        
+        <h2>Tips for Interview Success</h2>
+        <div class="tips">
+            <ul>
+                <li>Review the job description thoroughly to understand what the company is looking for in a candidate.</li>
+                <li>Practice your answers to common interview questions, but ensure they sound natural and not rehearsed.</li>
+                <li>Prepare specific examples that demonstrate your skills and achievements. Use the STAR technique (Situation, Task, Action, Result) to structure your answers.</li>
+                <li>Dress appropriately for the company's culture and the position you are applying for.</li>
+                <li>Be polite and professional with everyone you interact with during the interview process.</li>
+                <li>Send a personalized thank-you email after the interview to express your appreciation and interest in the position.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

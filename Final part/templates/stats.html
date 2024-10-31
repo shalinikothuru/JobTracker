@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <!-- Load Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1{
+            text-align: center;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh; /* Adjust height here */
+            width: 80vw; /* Adjust width here */
+        }
+        #dashboard-button {
+            position: fixed; /* Fixed position */
+            top: 20px; /* 20px from the top */
+            right: 20px; /* 20px from the right */
+            padding: 10px 20px;
+            background-color: darkorange; /* Red color for visibility */
+            color: black;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold
+          }
+        title{
+            background-color: darkorange;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="dashboard-button" onclick="location.href='/dashboard'">Dashboard</button>
+    <h1>Job Application Statistics</h1>
+    <div class="chart-container">
+        <canvas id="pieChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Scripts to render charts -->
+    <script>
+        var ctxPie = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: {{ status_labels|tojson }},
+                datasets: [{
+                    label: 'Job Application Status',
+                    data: {{ status_values|tojson }},
+                    backgroundColor: [
+                        'blue',    // Applied
+                        'yellow',  // Interview
+                        'orange',  // Pending
+                        'green',   // Offer
+                        'red'      // Rejected
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Job Application Status Distribution',
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            }
+        });
+
+        
+    
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['LinkedIn', 'Indeed', 'Handshake', 'Careers Page', 'Other'],
+                datasets: [{
+                    label: 'Applications by Job Source',
+                    data: {{ job_source_values|tojson }},
+                    backgroundColor: ['blue', 'green', 'yellow', 'green', 'red'], // Custom colors for each job source
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Applications by Job Source',
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            }
+        });
+
+        var ctxReferral = document.getElementById('referralChart').getContext('2d');
+    var referralChart = new Chart(ctxReferral, {
+        type: 'bar',
+        data: {
+            labels: ['Yes', 'No'],  // Labels for referrals
+            datasets: [{
+                label: 'Applications by Referral',
+                data: {{ referral_data|tojson }},
+                backgroundColor: ['green', 'red'],  // Green for YES, red for NO
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Job Applications by Referral',
+                    font: {
+                        size: 18
+                    }
+                }
+            }
+        }
+    });
+    </script>
+    
+    
+</body>
+</html>

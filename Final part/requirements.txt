@@ -1,0 +1,13 @@
+pandas
+numpy
+SQLAlchemy
+flask
+Flask-SQLAlchemy
+mysql-connector-python
+pymysql
+cryptography
+flask-wtf
+flask_login
+flask_bcrypt
+email_validator
+gunicorn

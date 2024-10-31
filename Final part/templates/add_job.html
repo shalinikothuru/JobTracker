@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Job Application</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+          #dashboard-button {
+            position: fixed; /* Fixed position */
+            top: 20px; /* 20px from the top */
+            right: 20px; /* 20px from the right */
+            padding: 10px 20px;
+            background-color: darkorange; /* Red color for visibility */
+            color: black;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold
+          }
+    </style>
+  </head>
+  <body>
+    <button id="dashboard-button" onclick="location.href='/dashboard'">Dashboard</button>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header text-center">
+              <h3>Add New Job Application</h3>
+            </div>
+            <div class="card-body">
+              <form method="POST">
+                {{ form.csrf_token }}
+                <!-- CSRF Protection -->
+
+                <div class="form-group">
+                  {{ form.job_id.label(class="form-label") }} {{
+                  form.job_id(class="form-control") }} {% for error in
+                  form.job_id.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.company_name.label(class="form-label") }} {{
+                  form.company_name(class="form-control") }} {% for error in
+                  form.company_name.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.role.label(class="form-label") }} {{
+                  form.role(class="form-control") }} {% for error in
+                  form.role.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.location.label(class="form-label") }} {{
+                  form.location(class="form-control") }} {% for error in
+                  form.location.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.URL.label(class="form-label") }} {{
+                  form.URL(class="form-control") }} {% for error in
+                  form.URL.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.job_source.label(class="form-label") }} {{
+                  form.job_source(class="form-control") }} {% for error in
+                  form.job_source.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.referral.label(class="form-label") }} {{
+                  form.referral(class="form-control") }} {% for error in
+                  form.referral.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.application_id.label(class="form-label") }} {{
+                  form.application_id(class="form-control") }} {% for error in
+                  form.application_id.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.status.label(class="form-label") }} {{
+                  form.status(class="form-control") }} {% for error in
+                  form.status.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  {{ form.application_date.label(class="form-label") }}
+                  {{ form.application_date(class="form-control", placeholder="YYYY-MM-DD") }}
+                  {% for error in form.application_date.errors %}
+                      <small class="text-danger">{{ error }}</small>
+                  {% endfor %}
+              </div>
+              
+
+                <button type="submit" class="btn btn-primary btn-block" style="background-color: darkorange; color: black;">
+                  Add Job Application
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JobQuest Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  <!-- Optional CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+    }
+
+    #logout-button {
+      position: fixed; /* Fixed position */
+      top: 20px; /* 20px from the top */
+      right: 20px; /* 20px from the right */
+      padding: 10px 20px;
+      background-color: darkorange; /* Red color for visibility */
+      color: black;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold
+    }
+
+    #hero {
+      background-image: url("https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg"); /* Background image */
+      background-size: cover;
+      background-position: center;
+      padding: 50px 20px;
+      text-align: center;
+      color: white;
+      
+    }
+
+    .button {
+      background-color: orange; /* Example button style */
+      color: black;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold
+    }
+
+    #blog {
+      padding: 20px;
+    }
+
+    .blog-card {
+      border: 1px solid lightgray;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    #contact-form {
+      padding: 20px;
+      background-color: #f9f9f9; /* Light background color for contrast */
+    }
+
+    #faq {
+      padding: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: darkorange; /* Example footer background color */
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logout Button -->
+  <button id="logout-button" onclick="location.href='/logout'">Logout</button>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1>Welcome to JobQuest, {{ first_name }}</h1>
+    <p>Your Job Application Dashboard</p>
+    <a href="/add_job" class="button">Add Job</a>
+    <!-- Button for adding new job applications -->
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog">
+    <h2>JobQuest Resources</h2>
+    <div class="blog-card">
+      <h3><b>Track your current job applications and their statuses.</b></h3>
+      <button onclick="location.href='/view_applications'" class="button">Job Applications</button>
+    </div>
+    <div class="blog-card">
+      <h3><b>View the statistics of your job applications</b></h3>
+      <button onclick="location.href='/stats'" class="button">Stats</button>
+    </div>
+    <div class="blog-card">
+      <h3><b>Prepare for your upcoming interviews with helpful resources.</b></h3>
+      <button onclick="location.href='/interview_prep'" class="button">Interview Preparation</button>
+    </div>
+    <div class="blog-card">
+      <h3><b>Get tips and advice on crafting the perfect resume.</b></h3>
+      <button onclick="location.href='/resume_tips'" class="button">Resume Tips</button>
+    </div>
+    
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 JobQuest. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Tips</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        .container:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 5px solid darkorange;
+            transition: transform 0.3s ease, border-left 0.3s ease;
+        }
+        li:hover {
+            transform: translateX(5%);
+            border-left: 10px solid #8c5507;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: darkorange;
+            text-decoration: underline;
+        }
+        .tips {
+            background-color: rgb(241, 217, 188);
+            border-left: 5px solid #f7860d;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fadeIn {
+            animation: fadeIn 1s ease-out;
+        }
+        #dashboard-button {
+            position: fixed; /* Fixed position */
+            top: 20px; /* 20px from the top */
+            right: 20px; /* 20px from the right */
+            padding: 10px 20px;
+            background-color: darkorange; /* Red color for visibility */
+            color: black;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold
+          }
+    </style>
+</head>
+<body>
+    <button id="dashboard-button" onclick="location.href='/dashboard'">Dashboard</button>
+    <div class="container fadeIn">
+        <h1>Resume Tips</h1>
+        <p>Get tips and advice on crafting the perfect resume.</p>
+        
+        <h2>Essential Articles</h2>
+        <ul>
+            <li><a href="https://www.indeed.com/career-advice/resumes-cover-letters/10-resume-writing-tips" target="_blank">How to Write a Resume</a></li>
+            <li><a href="https://zety.com/blog/resume-structure" target="_blank">The Ultimate Guide to Writing a Resume by Zety</a></li>
+            <li><a href="https://www.monster.com/career-advice/article/resumes" target="_blank">Resume Writing Tips - Monster.com</a></li>
+        </ul>
+        
+        <h2>Helpful Videos</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=u75hUSShvnc&pp=ygUTcmVzdW1lIHdyaXRpbmcgdGlwcw%3D%3D" target="_blank">Resume Writing Tips: How to Write a Professional Resume or CV</a></li>
+            <li><a href="https://www.linkedin.com/learning/writing-a-resume" target="_blank">LinkedIn Learning - Writing a Resume</a></li>
+        </ul>
+        
+        <h2>Tips for Effective Resumes</h2>
+        <div class="tips">
+            <ul>
+                <li>Keep your resume concise and to the point.</li>
+                <li>Use action verbs to describe your responsibilities and accomplishments.</li>
+                <li>Customize your resume for each job application to align with the job description.</li>
+                <li>Include measurable results to demonstrate your achievements.</li>
+                <li>Proofread for grammar and spelling errors to ensure professionalism.</li>
+                <li>Use a clean, professional format with clearly defined sections and consistent font usage.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
